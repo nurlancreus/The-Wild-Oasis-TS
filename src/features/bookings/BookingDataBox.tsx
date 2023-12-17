@@ -1,5 +1,4 @@
-import { Flag, DataItem } from "@/ui";
-import { formatDistanceFromNow, formatCurrency } from "@/utils/helpers";
+import styled from "styled-components";
 import { format, isToday } from "date-fns";
 import {
   HiOutlineHomeModern,
@@ -7,7 +6,9 @@ import {
   HiOutlineCheckCircle,
   HiOutlineCurrencyDollar,
 } from "react-icons/hi2";
-import styled from "styled-components";
+
+import { Flag, DataItem } from "@/ui";
+import { formatDistanceFromNow, formatCurrency } from "@/utils/helpers";
 
 const StyledBookingDataBox = styled.section`
   /* Box */
@@ -125,13 +126,15 @@ type TBooking = {
     countryFlag: string;
     nationalID: string;
   };
-  cabins: { name: string};
-}
+  cabins: { name: string };
+};
 
 // FIX BookingDetail.tsx and CheckinBooking.tsx
 
 // A purely presentational component
-function BookingDataBox<T extends TBooking>({ booking }: BookingDataBoxProps<T>) {
+function BookingDataBox<T extends TBooking>({
+  booking,
+}: BookingDataBoxProps<T>) {
   const {
     created_at,
     startDate,

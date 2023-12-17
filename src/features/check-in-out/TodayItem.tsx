@@ -37,8 +37,8 @@ type TActivity = {
 function TodayItem<T extends TActivity>({ activity }: TodayItemProps<T>) {
   return (
     <StyledTodayItem>
-      {status === "unconfirmed" && <Tag $type="green">Arriving</Tag>}
-      {status === "checked-in" && <Tag $type="blue">Departing</Tag>}
+      {activity.status === "unconfirmed" && <Tag $type="green">Arriving</Tag>}
+      {activity.status === "checked-in" && <Tag $type="blue">Departing</Tag>}
 
       <Flag
         src={activity.guests?.countryFlag ?? ""}
